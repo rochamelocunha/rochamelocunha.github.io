@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>The Daily Wag</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+<style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+    max-width: 1560px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #f7b267;
+  }
+  .input-group {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .jumbotron {
+    position: relative;
+    background:url(dog-walker.jpg) no-repeat center bottom;
+    background-size: cover;
+    color: #fff;
+    padding: 100px 25px;
+  }
+  .jumbotron::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(107, 95, 95, 0.493); 
+    z-index: 1; 
+}
+.jumbotron * {
+    position: relative; 
+    z-index: 2;
+} 
+  .jumbotron h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); 
+    font-family: Montserrat, sans-serif;
+    font-weight:500;
+  }
+  .jumbotron p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); 
+  }
+.btn-subscribe {
+    background-color: #f7b267;
+    color: #ffffff; 
+    border: none; 
+    font-size: 14px; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);;
+  }
+.btn-subscribe:hover {
+    background-color: #d98b52; 
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+  .form-control {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  .btn-get-in-touch {
+    background-color: #f7b267;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 4px; 
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  .btn-get-in-touch:hover {
+    background-color: #d98b52;
+    color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+  }
+  .btn-success {
+    background-color: #f7b267;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px; 
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  .btn-success:hover {
+    background-color: #d98b52;
+    color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+  .btn-default {
+    background-color: #f7b267;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 4px; 
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  .btn-default:hover {
+    background-color: #d98b52;
+    color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+  }
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+  .logo-small {
+    color: #f4511e;
+    font-size: 50px;
+  }
+  .logo {
+    color: #f4511e;
+    font-size: 200px;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #f7b267;
+  }
+  .carousel-indicators li {
+    border-color: #f7b267;
+  }
+  .carousel-indicators li.active {
+    background-color: #f7b267;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+  .item span {
+    font-style: normal;
+  }
+  .panel {
+    border: 1px solid #f7b267; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #f7b267 !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-body h2 {
+    font-size: medium;
+  }
+  #timeSchedule {
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #f7b267;
+    color: #fff;
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid #f7b267;
+    background-color: #d98b52 !important;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color: #A8B5A3 ;
+    z-index: 1000;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 2px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  #navbar-logo{
+    font-size: 16px;
+}
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #303030 !important;
+    background-color: #D2A679 !important;
+    font-weight:bolder;
+    transition: background-color 0.5s ease;
+    transition: color 0.2s ease;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  #contact1 .row .col-sm-6 p {
+  margin: 10px 0; 
+  text-align: left; 
+  }
+  footer {
+  background-color: white;
+  color: #303030;
+  padding: 20px;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  }
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f7b267;
+  }
+  textarea {
+    resize: none;
+  }
+  .value-box {
+    padding: 20px;
+    background-color: #f7b267; 
+    border-radius: 8px; 
+    margin: 10px 0; 
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  .value-box:hover {
+    background-color: #d98b52;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  .value-box h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+  }
+  .fi {
+    font-size: 72px;
+    color: #f7b267;
+  }
+  .thumbnail {
+    padding-top: 30px;
+  }
+  .thumbnail img {
+  width: 450px; 
+  height: 450px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto; 
+}
+#portfolio{
+  padding-top: 110px;
+}
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" id="navbar-logo" href="#myPage">The Daily Wag</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Pawsitive Moments</a></li>
+        <li><a href="#subscription">Subscription Plans</a></li>
+        <li><a href="#contact1">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>The Daily Wag</h1>
+  <p>Trusted walks, wagging tails</p>
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" id="emailInput" size="50" placeholder="Enter your email" required oninput="clearErrorMessage()">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-subscribe" onclick="validateEmail()">Subscribe</button>
+      </div>
+    </div>
+    <small id="errorMessage" style="color:red; display:none;">Invalid e-mail format</small>
+  </form>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about-us" class="container-fluid bg-white">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>About Us</h2><br>
+      <h4>At <strong>The Daily Wag</strong>, we believe every dog deserves a happy tail and a healthy walk.<br> Our mission is to provide loving, reliable, and professional care to every furry friend, ensuring their happiness and your peace of mind.</h4><br>
+      <p>We know that every dog is more than just a pet—they're family. That's why we're committed to providing tailored care, fun-filled walks, and the attention your furry companion deserves. With us, every leash leads to trust, safety and wagging tails.</p>
+      <br>
+    <button class="btn-get-in-touch" data-toggle="modal" data-target="#bookingModal">Get in Touch</button>
+    <div id="bookingModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Book a Walk</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" class="form-control" id="name" placeholder="Owner's name" required>
+                </div>
+                <div class="form-group">
+                  <label for="date">Preferred Date:</label>
+                  <input type="date" class="form-control" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Contact:</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">+358</span>
+                      <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your phone number" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="timeSchedule">Select a Time Slot:</label>
+                  <select class="form-control" id="timeSchedule" name="timeSchedule">
+                    <option value="08:00">08:00 - 09:00</option>
+                    <option value="09:00">09:00 - 10:00</option>
+                    <option value="10:00">10:00 - 11:00</option>
+                    <option value="11:00">11:00 - 12:00</option>
+                    <option value="12:00">12:00 - 13:00</option>
+                    <option value="13:00">14:00 - 15:00</option>
+                    <option value="14:00">15:00 - 16:00</option>
+                    <option value="15:00">16:00 - 17:00</option>
+                    <option value="16:00">17:00 - 18:00</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="comments">Additional Notes:</label>
+                  <textarea class="form-control" id="comments" rows="3" placeholder="Tell us about dog's special needs or it's preferred activities."></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <img src="german_shepperd.png" alt="German Shepherd" class="img-responsive german-shepherd-img slideanim">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="paw-print.png" alt="Paw print"  class="img-responsive paw-print-img slideanim">
+    </div>
+    <div class="col-sm-8">
+      <h2>Our Commitment</h2><br>
+      <h4>Our commitment is rooted in our love for dogs and the trust you place in us. We believe every dog deserves a joyful, safe and enriching experience. From rain to shine, you can rely on us to show up, care deeply, and ensure every wagging tail tells a story of happiness. We’re more than dog walkers—we’re companions, caretakers, and friends to your furry family members.</h4><br>
+      <div class="row text-center">
+        <div class="col-sm-4">
+          <div class="value-box">
+            <h4>Loving Care</h4>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="value-box">
+            <h4>Dependability</h4>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="value-box">
+            <h4>Safety First</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>SERVICES</h2><br>
+  <h4>What we offer</h4><br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <i class="fi fi-rr-calendar-pen"></i>
+      <h4>Daily walks</h4>
+      <p>Regular walking services tailored to meet the exercise needs of dogs of all breeds and sizes.</p>
+    </div>
+    <div class="col-sm-4">
+      <i class="fi fi-rr-paw"></i>
+      <h4>Group walks</h4>
+      <p>Socialized walks with other dogs to promote healthy interactions and play.</p>
+    </div>
+    <div class="col-sm-4">
+      <i class="fi fi-rr-bone"></i>
+      <h4>Basic Training</h4>
+      <p>Focus on essential commands like sit, stay and recall, using positive reinforcement to build trust and improve communication.</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <i class="fi fi-rr-circle-heart"></i>
+      <h4>Senior dog care</h4>
+      <p>Gentle walks and companionship tailored to older dogs with mobility or health considerations.</p>
+      <p><strong>Medication administration</strong> and extra attention for senior pet needs.</p>
+    </div>
+    <div class="col-sm-4">
+      <i class="fi fi-rr-camping"></i>      <h4>Adventure walks</h4>
+      <p>Off-leash excursions or longer hikes in safe, dog-friendly parks and nature trails.</p>
+    </div>
+    <div class="col-sm-4">
+      <i class="fi fi-rr-hammer-crash"></i>
+      <h4>Custom care packages</h4>
+      <p>Personalized services, such as feeding, bathing or grooming.</p><br><br>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <h2>Pawsitive Moments</h2><br>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="testimonials1.jpg" alt="Paris" width="500" height="500"><br>
+        <p><strong>Golden smiles, brighter days!</strong></p>
+        <p>Max & Bella</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="testimonials2.jpg" alt="New York" width="500" height="500"><br>
+        <p><strong>"What's next on today's adventure?"</strong></p>
+        <p>Kaiser</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="testimonials3.jpg" alt="San Francisco" width="500" height="500"><br>
+        <p><strong>Learning the ropes, one command at a time.</strong></p>
+        <p>Willow</p>
+      </div>
+    </div>
+  </div><br>
+  
+  <h2>What our customers say</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"The Daily Wag makes my dog's day—and mine too!"<br><span>Emily R.</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Reliable, caring and the best service I've ever used!"<br><span>James T.</span></h4>
+      </div>
+      <div class="item">
+        <h4>"My pup loves The Daily Wag! Always happy and well cared for."<br><span>Sarah M.</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (Subscription Section) -->
+<div id="subscription" class="container-fluid">
+  <div class="text-center">
+    <h2>Subscription Plans</h2>
+    <h4>Your pet monthly subscription</h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1><strong>Basic Care</strong></h1>
+        </div>
+        <div class="panel-body">
+          <h2><strong>Basic needs, occasional service</strong></h2>
+          <p>8 walks/month, 40 minutes each</p>
+          <p></p>
+          <p>2 times a week</p>
+          <p></p>
+        </div>
+        <div class="panel-footer">
+          <h3><strong>120 eur.</strong></h3>
+          <h4>/month</h4>
+          <button class="btn btn-lg" data-toggle="modal" data-target="#subscriptionModal1">Sign Up</button>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1><strong>Pro Care</strong></h1>
+        </div>
+        <div class="panel-body">
+          <h2>Consistent care, moderate activity</h2>
+          <p>12 walks/month, 40 minutes each</p>
+          <p>Socialized walks</p>
+          <p>3 times a week</p>
+          <p></p>
+        </div>
+        <div class="panel-footer">
+          <h3><strong>170 eur.</strong></h3>
+          <h4>/month</h4>
+          <button class="btn btn-lg" data-toggle="modal" data-target="#subscriptionModal2">Sign Up</button>
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1><strong>Ultimate</strong></h1>
+        </div>
+        <div class="panel-body">
+          <h2>Frequent activity, frequent attention</h2>
+          <p>16 walks/month, 40 minutes each</p>
+          <p>Obedience training</p>
+          <p>Socialized walks</p>
+          <p>4 times a week</p>
+        </div>
+        <div class="panel-footer">
+          <h3><strong>220 eur.</strong></h3>
+          <h4>/month</h4>
+          <button class="btn btn-lg" data-toggle="modal" data-target="#subscriptionModal3">Sign Up</button>
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+<!-- Basic Care Subs -->
+<div id="subscriptionModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Subscribe to Basic Care Plan</h4>
+      </div>
+      <div class="modal-body">
+        <form id="basicCareForm">
+          <!-- Personal data -->
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" placeholder="Enter your phone number" required>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Next</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Pro Care Subs -->
+<div id="subscriptionModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Subscribe to Pro Care Plan</h4>
+      </div>
+      <div class="modal-body">
+        <form id="proCareForm">
+          <!-- Personal data -->
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" placeholder="Enter your phone number" required>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Next</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Ultimate Subs -->
+<div id="subscriptionModal3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Subscribe to Ultimate Plan</h4>
+      </div>
+      <div class="modal-body">
+        <form id="ultimateForm">
+          <!-- Personal data -->
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Next</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact1" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <h4 class="text-center">Back to you within 24 hours</h4>
+  <div class="row">
+    <div class="col-sm-5">
+
+      <div class="row">
+      <!--row1-->
+        <div class="col-sm-6">
+          <p><i class="bi bi-geo-alt"></i> Helsinki, Finland</p>
+        </div>
+        <div class="col-sm-6">
+          <p><a href="https://www.youtube.com" target="_blank"><i class="bi bi-youtube"></i> The Daily Shorts</a></p>
+        </div>
+      </div>
+      <div class="row">
+      <!--row2-->
+        <div class="col-sm-6">
+          <p><i class="bi bi-envelope"></i> walks@thedailywag.fi</p>
+        </div>
+        <div class="col-sm-6">
+          <p><a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i> The Daily Wag</a></p>
+        </div>
+      </div>
+      <div class="row">
+      <!--row3-->
+      <div class="col-sm-6">
+        <p><i class="bi bi-phone"></i> +358 151515151</p>
+      </div>
+      <div class="col-sm-6">
+        <p><a href="https://www.tiktok.com" target="_blank"><i class="bi bi-tiktok"></i> The Daily Wag</a></p>
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="confirmationModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Message Sent</h4>
+      </div>
+      <div class="modal-body">
+        <p>Thank you! We have received your message and will get back to you within 24 hours.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>&copy; 2024 The Daily Wag. All Rights Reserved.</p></footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+
+let errorTimer;
+
+//email format validation
+function validateEmail() {
+  const emailInput = document.getElementById('emailInput').value;
+  const errorMessage = document.getElementById('errorMessage');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (emailRegex.test(emailInput)) {
+    errorMessage.style.display = 'none';
+    showPopup();
+  } else {
+    errorMessage.style.display = 'inline';
+    autoClearErrorMessage();
+  }
+}
+function clearErrorMessage() {
+  const errorMessage = document.getElementById('errorMessage');
+  errorMessage.style.display = 'none';
+  clearTimeout(errorTimer);
+}
+//auto clear error message
+function autoClearErrorMessage() {
+  clearTimeout(errorTimer); 
+  errorTimer = setTimeout(() => {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.style.display = 'none';
+  }, 1000); 
+}
+//success popup
+function showPopup() {
+  document.getElementById('successModal').style.display = 'block';
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.id = 'modalOverlay';
+  document.body.appendChild(overlay);
+  document.getElementById('modalOverlay').style.display = 'block';
+}
+//closing popup
+function closePopup() {
+  document.getElementById('successModal').style.display = 'none';
+  const overlay = document.getElementById('modalOverlay');
+  if (overlay) {
+    overlay.remove();
+  }
+}
+
+document.querySelector("#contact1 .btn").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent form submission
+    $("#confirmationModal").modal("show"); // Show the confirmation modal
+  });
+
+</script>
+</body>
+</html>
